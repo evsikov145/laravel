@@ -13,14 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index'
+]);
 
-Route::get('/main', function () {
-    return view('main');
-});
+Route::group(
+    [
+        'prefix' => 'news',
+        'namespace' => 'News',
+        'as' => 'news.'
+    ],
+    function(){
+        Route::get('/', [
+            'uses' => 'NewsController@news',
+            'as' => 'list'
+        ]);
+        Route::get('/{id}', [
+            'uses' => 'NewsController@newsOne',
+            'as' => 'one'
+        ]);
 
-Route::get('/info', function () {
-    return view('info');
-});
+    }
+);
+
+Route::get('/category', [
+    'uses' => 'NewsCategory\CategoryController@categoryNews',
+    'as' => 'category'
+]);
