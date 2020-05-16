@@ -17,6 +17,10 @@ Route::get('/', [
     'uses' => 'HomeController@index'
 ]);
 
+Route::get('/auth', [
+    'uses' => 'AuthController@registration'
+]);
+
 Route::group(
     [
         'prefix' => 'news',
@@ -28,15 +32,19 @@ Route::group(
             'uses' => 'NewsController@news',
             'as' => 'list'
         ]);
+        Route::get('/category', [
+            'uses' => 'CategoryController@categoryNews',
+            'as' => 'category'
+        ]);
+        Route::get('/category/{id}', [
+            'uses' => 'CategoryController@categoryOne',
+            'as' => 'categoryOne'
+        ]);
         Route::get('/{id}', [
             'uses' => 'NewsController@newsOne',
             'as' => 'one'
         ]);
-
     }
 );
 
-Route::get('/category', [
-    'uses' => 'NewsCategory\CategoryController@categoryNews',
-    'as' => 'category'
-]);
+

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05b641b2-56a4-401e-a0de-651892d3be35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -125,6 +124,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Geekbrains\laravel\app\Http\Controllers\News" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -154,7 +158,10 @@
       <option name="presentableId" value="Default" />
       <updated>1588185937604</updated>
       <workItem from="1588185940566" duration="1271000" />
-      <workItem from="1589399686152" duration="7580000" />
+      <workItem from="1589399686152" duration="7715000" />
+      <workItem from="1589452838880" duration="29000" />
+      <workItem from="1589659115987" duration="53000" />
+      <workItem from="1589665211244" duration="2329000" />
     </task>
     <servers />
   </component>
@@ -166,7 +173,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
