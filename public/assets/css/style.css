@@ -1,0 +1,96 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+span {
+    color: #222222;
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #222222;
+}
+
+p {
+    font-size: 14px;
+}
+
+a {
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #222222;
+    transition: .5s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #49bcab;
+    transition: .5s;
+}
+
+.header {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+.header-nav {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100% - 60px);
+}
+
+.content {
+    flex-grow: 1;
+    max-width: 1000px;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.content a {
+    padding: 0;
+    font-size: 30px;
+}
+
+.footer {
+    margin: 40px 20px 0;
+}
+.footer-block:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+}
+.footer-item {
+    padding: 40px;
+}
+
+.footer-block a {
+    color: #49bcab;
+}
+
+.footer-block a:hover {
+    color: #222222;
+}
+
+
