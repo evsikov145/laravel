@@ -21,6 +21,11 @@ Route::get('/auth', [
     'uses' => 'AuthController@registration'
 ]);
 
+Route::match(['post', 'get'], '/auth', [
+    'uses' => 'AuthController@registration',
+    'as' => 'auth'
+]);
+
 Route::group(
     [
         'prefix' => 'news',
