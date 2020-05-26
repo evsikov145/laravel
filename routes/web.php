@@ -21,6 +21,10 @@ Route::get('/auth', [
     'uses' => 'AuthController@registration'
 ]);
 
+Route::get('/users', [
+    'uses' => 'UserController@showUsers'
+]);
+
 Route::match(['post', 'get'], '/auth', [
     'uses' => 'AuthController@registration',
     'as' => 'auth'

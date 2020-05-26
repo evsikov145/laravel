@@ -9,9 +9,14 @@
     <hr>
     @foreach($news as $item)
         <h2>
-            <a href="{{route('news.one', $item['id'])}}">{{$item['title']}} {{$item['id']}}</a>
+            {{$item->title}}
         </h2>
-        <div>{{$item['info']}}</div>
+        <div>{{$item->info}}</div>
+        @if(!$item->is_private)
+            <a href="{{route('news.one', $item->id)}}">
+                Подробнее...
+            </a>
+        @endif
         <hr>
     @endforeach
 @endsection

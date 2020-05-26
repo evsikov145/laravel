@@ -9,7 +9,7 @@
     <hr>
     @foreach($category as $item)
         <h2>
-            <a href="{{route('news.categoryOne', $item['id'])}}">{{$item['title']}}</a>
+            <a href="{{route('news.categoryOne', $item->id)}}">{{$item->title}}</a>
         </h2>
         <hr>
     @endforeach

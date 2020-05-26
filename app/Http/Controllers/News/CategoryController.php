@@ -4,49 +4,23 @@ namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    private $category = [
-        [
-            'id' => 1,
-            'title' => 'Важные',
-        ],
-        [
-            'id' => 2,
-            'title' => 'Главные',
-        ],
-        [
-            'id' => 3,
-            'title' => 'Новые',
-        ],
-        [
-            'id' => 4,
-            'title' => 'Опроверженные',
-        ],
-        [
-            'id' => 5,
-            'title' => 'Прошлые',
-        ],
-    ];
 
     public function categoryNews(){
-        return view('News.categoryNews', ['category' => $this -> category]);
+
+        $category = DB::table('categories')->get();
+
+        return view('News.categoryNews', ['category' => $category]);
     }
 
     public function categoryOne($id) {
 
-        $category = $this->getCategoryById($id);
+        $category = DB::table('categories')->find($id);
 
        return view('News.categoryNewsOne', ['category' => $category]);
     }
 
-    private function getCategoryById($id){
-        foreach($this->category as $category){
-            if($category['id'] == $id){
-                return $category;
-            }
-        }
-        return [];
-    }
 }

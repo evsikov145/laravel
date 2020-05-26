@@ -108,4 +108,18 @@ input {
     color: #222222;
 }
 
+.users-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.users-block .id {
+    margin-right: 40px;
+}
+
+.users-block .email {
+    margin-right: 40px;
+    max-width: 300px;
+    min-width: 300px;
+}

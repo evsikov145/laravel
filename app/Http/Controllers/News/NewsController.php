@@ -4,6 +4,7 @@ namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -24,25 +25,21 @@ class NewsController extends Controller
 
     public function news() {
 
-        return view('News.news', ['news' => $this -> news]);
+        $news = DB::table('news')->get();
+        return view('News.news', ['news' => $news]);
 
     }
 
     public function newsOne($id) {
 
-        $news = $this->getNewsById($id);
+        $news = DB::table('news')->find($id);
 
+        if (empty($news)){
+            return redirect()->route('News.news');
+        }
         return view('News.newsOne', ['news' => $news]);
     }
 
-    private function getNewsById($id){
-        foreach($this->news as $news){
-            if($news['id'] == $id){
-                return $news;
-            }
-        }
-        return [];
-    }
 
 
 

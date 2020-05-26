@@ -6,5 +6,6 @@
             <a href="/news/category">Категории новостей</a>
             <a href="/news/category/1">Конкретная категория</a>
             <a href="/auth">Страница регистрации</a>
+            <a href="/users">Список пользователей</a>
         </nav>
 </header>
