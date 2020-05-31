@@ -56,4 +56,30 @@ Route::group(
     }
 );
 
+Route::group(
+    [
+        'prefix' => 'admin',
+        'namespace' => 'Admin',
+        'as' => 'admin.'
+    ],
+    function(){
+        Route::get('/', [
+            'uses' => 'NewsController@news',
+            'as' => 'getNews'
+        ]);
+        Route::match(['post', 'get'],'/add', [
+            'uses' => 'NewsController@addNews',
+            'as' => 'addNews'
+        ]);
+        Route::match(['post', 'get'],'/edit/{id}', [
+            'uses' => 'NewsController@editNews',
+            'as' => 'editNews'
+        ]);
+        Route::match(['post', 'get'],'/delete/{id}', [
+            'uses' => 'NewsController@deleteNews',
+            'as' => 'deleteNews'
+        ]);
+    }
+);
+
 

@@ -3,44 +3,27 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    private $news = [
-        [
-            'id' => 1,
-            'title' => 'Новость',
-            'info' => 'Подробное описание новости 1'
-        ],
-        [
-            'id' => 2,
-            'title' => 'Новость',
-            'info' => 'Подробное описание новости 2'
-        ],
-    ];
-
-
 
     public function news() {
-
-        $news = DB::table('news')->get();
-        return view('News.news', ['news' => $news]);
-
+        return view('News.news', ['news' => News::all()]);
     }
 
     public function newsOne($id) {
-
-        $news = DB::table('news')->find($id);
-
-        if (empty($news)){
-            return redirect()->route('News.news');
-        }
-        return view('News.newsOne', ['news' => $news]);
+        return view('News.newsOne', ['news' => News::where('id', $id)->first()]);
     }
+    public function addNews(){
 
+    }
+    public function editNews($id){
 
+    }
+    public function deleteNews($id){
 
-
+    }
 }
