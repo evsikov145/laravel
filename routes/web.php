@@ -17,8 +17,12 @@ Route::get('/', [
     'uses' => 'HomeController@index'
 ]);
 
-Route::resource('/categories', 'News\CategoryController');
-Route::resource('/news', 'News\NewsController');
+Route::group(['middleware' => 'auth'], function(){
+    Route::group(['middleware' => 'admin'], function (){
+        Route::resource('/categories', 'News\CategoryController');
+        Route::resource('/news', 'News\NewsController');
+    });
+});
 
 Auth::routes();
 
