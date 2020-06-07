@@ -6,14 +6,15 @@
 
 @section('content')
     <h1>Список новостей</h1>
-    @foreach($news as $item)
+
     <table>
-        <tr><th>Название</th><th>Описание</th><th>Редактировать</th><th>Удалить</th></tr>
+        <tr><th>Название</th><th>Описание</th><th></th><th></th></tr>
+        @foreach($news as $item)
         <tr><td>
-                $item->title
+                {{$item->title}}
             </td>
             <td>
-                $item->info
+                {{$item->info}}
             </td>
             <td>
                 <a href="{{route('admin.editNews', $item->id)}}">Редактировать</a>
@@ -22,7 +23,8 @@
                 <a href="{{route('admin.deleteNews', $item->id)}}">Удалить</a>
             </td>
         </tr>
+        @endforeach
     </table>
-    @endforeach
+
     <a href="{{route('admin.addNews')}}">Добавить новую новость</a>
 @endsection

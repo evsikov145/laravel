@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+
 class News extends Model
 {
     protected $table = 'news';
-    protected $fillable = ['id','title', 'info', 'is_private'];
+    public $timestamps = false;
+    protected $primaryKey = 'id';
+    protected $fillable = ['id','title', 'description', 'slug'];
 }
