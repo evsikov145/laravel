@@ -17,11 +17,25 @@ Route::get('/', [
     'uses' => 'HomeController@index'
 ]);
 
+Route::get('/auth/vk', 'Auth\VkController@login' )->name('vk.login');
+Route::get('/auth/callback', 'Auth\VkController@response' )->name('vk.callback');
+
+Route::get('/parser', function(){
+    $xml = XmlParser::load('https://www.cbsnews.com/latest/rss/world');
+    $content = $xml->parse([
+        'title' => ['uses' => 'channel.title'],
+        'description' => ['uses' => 'channel.description'],
+        'link' => ['uses' => 'channel.link'],
+        'item' => ['uses' => 'channel.item[title,link,description]']
+    ]);
+    dd($content);
+});
+
 Route::group(['middleware' => 'auth'], function(){
-    Route::group(['middleware' => 'admin'], function (){
+
         Route::resource('/categories', 'News\CategoryController');
         Route::resource('/news', 'News\NewsController');
-    });
+
 });
 
 Auth::routes();

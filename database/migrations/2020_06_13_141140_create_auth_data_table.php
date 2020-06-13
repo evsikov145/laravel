@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateAuthDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('auth_data', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->comment('Headline');
-            $table->text('description')->comment('Content')->nullable();
-            $table->enum('status', ['new', 'draft', 'published'])->default('new');
-            $table->string('slug', 191)->default('news');
+            $table->unsignedBigInteger('user_id');
+            $table->string('nickname', 191)->nullable();
+            $table->string('network', 35);
+            $table->string('name', 191);
+            $table->string('avatar', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('auth_data');
     }
 }

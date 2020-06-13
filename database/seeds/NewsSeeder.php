@@ -21,8 +21,7 @@ class NewsSeeder extends Seeder
         for($i = 0; $i < 10; $i++){
             $data[] = [
                 'title' => $faker->sentence(rand(3, 10)),
-                'info' => $faker->realText(rand(100, 200)),
-                'is_private' => (boolean)rand(1, 0),
+                'description' => $faker->realText(rand(100, 200))
             ];
 
         }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\News;
 
+use App\Events\AddNewsEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Models\News;
@@ -48,6 +49,7 @@ class NewsController extends Controller
         ]);
 
         if($news){
+            event(new AddNewsEvent($news));
             return redirect()->route('news.index')->with('success', 'Новость успешно добавлена');
         }
 

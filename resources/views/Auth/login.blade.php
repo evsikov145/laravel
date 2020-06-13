@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{ route('vk.login') }}">Войти через VK</a>
                 </div>
             </div>
         </div>
